@@ -42,3 +42,10 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["img"]["logo-img"])
+
+const links = [...document.getElementsByTagName('a')];
+const logoIMG = document.getElementById('logo-img');
+const ctaText = [...document.getElementsByClassName('cta-text')];
+console.log("logo image: ", logoIMG);
+console.log("Navigation Links: ",links);
+console.log("Call To Action Text Section : ", ctaText);
