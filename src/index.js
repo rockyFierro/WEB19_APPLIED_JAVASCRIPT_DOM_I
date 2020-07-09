@@ -84,9 +84,11 @@ document.getElementById('cta-img').alt = "A screenshot of code";
 document.getElementById('middle-img').src = siteContent["img"]["mid-page-img"];
 document.getElementById('middle-img').alt = "a skewed screenshot of code";
 
+//ammendements to CTA and Contact to add custom HTML
 cta[0].innerHTML = '<h1>DOM <br> Is </br> Awesome!</h1>';
 contact[0].children[1].innerHTML = '123 Way 456 Street <br> Somewhere, USA</br>';
 
+//creating elements to practive appending and prepending
 const linkA = document.createElement('a');
 linkA.textContent = "LinkA";
 linkA.src = "#";
