@@ -79,7 +79,9 @@ fillit(footerSrc, footer);
 
 //images
 document.getElementById('cta-img').src = siteContent["img"]["header-img"];
+document.getElementById('cta-img').alt = "A screenshot of code";
 document.getElementById('middle-img').src = siteContent["img"]["mid-page-img"];
+document.getElementById('middle-img').alt = "a skewed screenshot of code";
 
 cta[0].innerHTML = '<h1>DOM <br> Is </br> Awesome!</h1>';
 contact[0].children[1].innerHTML = '123 Way 456 Street <br> Somewhere, USA</br>';
