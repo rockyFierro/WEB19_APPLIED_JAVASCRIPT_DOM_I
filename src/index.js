@@ -25,7 +25,7 @@ const siteContent = {
   },
   "contact": {
     "contact-h4" : "Contact",
-    "address" : "123 Way 456 Street \n Somewhere, USA",
+    "address" : "123 Way 456 Street Somewhere, USA",
     "phone" : "1 (888) 888-8888",
     "email" : "sales@greatidea.io",
   },
@@ -82,3 +82,4 @@ document.getElementById('cta-img').src = siteContent["img"]["header-img"];
 document.getElementById('middle-img').src = siteContent["img"]["mid-page-img"];
 
 cta[0].innerHTML = '<h1>DOM <br> Is </br> Awesome!</h1>';
+contact[0].children[1].innerHTML = '123 Way 456 Street <br> Somewhere, USA</br>';
