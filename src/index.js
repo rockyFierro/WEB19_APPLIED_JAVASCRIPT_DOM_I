@@ -25,7 +25,7 @@ const siteContent = {
   },
   "contact": {
     "contact-h4" : "Contact",
-    "address" : "123 Way 456 Street Somewhere, USA",
+    "address" : "123 Way 456 Street \n Somewhere, USA",
     "phone" : "1 (888) 888-8888",
     "email" : "sales@greatidea.io",
   },
@@ -39,34 +39,46 @@ const siteContent = {
   }
 };
 
-// Example: Update the img src for the logo
+const fillit = (source, element) => {
+this.source = [...source];
+this.element = [...element];
+element.map((el)=>{
+  Array.from(el.children).map(
+    (inceptionA,index) => { inceptionA.textContent = source[index] }
+  )
+})}
 
+// Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["img"]["logo-img"])
 
 //links
-const linkVal = Object.values(siteContent["nav"]);
-const links = [...document.getElementsByTagName('a')];
-links.map((link, index)=>{
-  link.textContent = linkVal[index];
-});
+ const linkSrc = Object.values(siteContent["nav"]);
+ const links = [...document.getElementsByTagName('nav')];
+ fillit(linkSrc,links);
 
-//call to action
-const ctaArray = [...document.getElementsByClassName('cta-text')[0].childNodes];
-const ctaHeading = ctaArray[1];
-const ctaButton = ctaArray[3]; 
-const ctaVals = Object.values(siteContent["cta"]);
-ctaHeading.textContent = ctaVals[0];
-ctaButton.textContent = ctaVals[1];
+ //call to action
+const ctaTextSrc = Object.values(siteContent["cta"]);
+const cta = [...document.getElementsByClassName('cta-text')];
+fillit(ctaTextSrc,cta);
 
 //main content
 const mainVals = Object.values(siteContent["main-content"]);
 const textContent = [...document.getElementsByClassName('text-content')];
-
-textContent.map((el) => {
-    Array.from(el.children).map(
-      (inceptionA, index) => {inceptionA.textContent = mainVals[index];}
-    );//end inception maps
-  });//end textContent.map
+fillit(mainVals, textContent);
 
 //contact
+const contactSrc = Object.values(siteContent["contact"]);
+const contact = [...document.getElementsByClassName('contact')];
+fillit(contactSrc,contact);
+
+//footer
+const footerSrc = Object.values(siteContent["footer"]);
+const footer = [...document.getElementsByTagName('footer')];
+fillit(footerSrc, footer);
+
+//images
+document.getElementById('cta-img').src = siteContent["img"]["header-img"];
+document.getElementById('middle-img').src = siteContent["img"]["mid-page-img"];
+
+cta[0].innerHTML = '<h1>DOM <br> Is </br> Awesome!</h1>';
