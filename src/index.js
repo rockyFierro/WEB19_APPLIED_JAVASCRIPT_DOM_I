@@ -40,12 +40,33 @@ const siteContent = {
 };
 
 // Example: Update the img src for the logo
+
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["img"]["logo-img"])
 
+//links
+const linkVal = Object.values(siteContent["nav"]);
 const links = [...document.getElementsByTagName('a')];
-const logoIMG = document.getElementById('logo-img');
-const ctaText = [...document.getElementsByClassName('cta-text')];
-console.log("logo image: ", logoIMG);
-console.log("Navigation Links: ",links);
-console.log("Call To Action Text Section : ", ctaText);
+links.map((link, index)=>{
+  link.textContent = linkVal[index];
+});
+
+//call to action
+const ctaArray = [...document.getElementsByClassName('cta-text')[0].childNodes];
+const ctaHeading = ctaArray[1];
+const ctaButton = ctaArray[3]; 
+const ctaVals = Object.values(siteContent["cta"]);
+ctaHeading.textContent = ctaVals[0];
+ctaButton.textContent = ctaVals[1];
+
+//main content
+const mainVals = Object.values(siteContent["main-content"]);
+const textContent = [...document.getElementsByClassName('text-content')];
+
+textContent.map((el) => {
+    Array.from(el.children).map(
+      (inceptionA, index) => {inceptionA.textContent = mainVals[index];}
+    );//end inception maps
+  });//end textContent.map
+
+//contact
