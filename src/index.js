@@ -56,6 +56,7 @@ logo.setAttribute('src', siteContent["img"]["logo-img"])
  const linkSrc = Object.values(siteContent["nav"]);
  const links = [...document.getElementsByTagName('nav')];
  fillit(linkSrc,links);
+ Array.from(links[0].children).map(el=>{el.style.color='green'});
 
  //call to action
 const ctaTextSrc = Object.values(siteContent["cta"]);
@@ -85,3 +86,13 @@ document.getElementById('middle-img').alt = "a skewed screenshot of code";
 
 cta[0].innerHTML = '<h1>DOM <br> Is </br> Awesome!</h1>';
 contact[0].children[1].innerHTML = '123 Way 456 Street <br> Somewhere, USA</br>';
+
+const linkA = document.createElement('a');
+linkA.textContent = "LinkA";
+linkA.src = "#";
+const linkB = document.createElement('a');
+linkB.textContent = "LinkB";
+linkB.src = "#";
+
+document.getElementsByTagName('nav')[0].appendChild(linkA);
+document.getElementsByTagName('nav')[0].prepend(linkB);
